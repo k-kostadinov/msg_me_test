@@ -5,7 +5,8 @@ class MsgsController < ApplicationController
   def create
     msg = current_user.msgs.build(msg_params)
     if msg.save
-      redirect_to root_path
+      ActionCable.server.broadcast 'chat_channel',
+        foo: msg.body
     end
 
   end
