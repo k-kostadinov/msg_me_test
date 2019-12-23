@@ -1,5 +1,5 @@
 <h2 class="ui center aligned large header">
-  Welcome to MessageMe - <em>a complete Chat App</em>
+  Welcome to MsgMe - <em>a complete Chat App</em>
 </h2>
 
 <h4 class="ui center aligned medium icon header">
@@ -11,23 +11,23 @@
 <div class="ui placeholder segment">
   <div class="ui two column very relaxed stackable grid">
     <div class="column">
-      <form class="ui form">
+      <%= form_for(:session , url:login_path ,html: {class:'ui form', role:'form' }  ) do |f|%>
         <div class="field">
-          <label>Username</label>
+          <%= f.label :username, 'Username'%>
           <div class="ui left icon input">
-            <input type="text" placeholder="Username">
+            <%= f.text_field :username, placeholder: 'Username' %>
             <i class="user icon"></i>
           </div>
         </div>
         <div class="field">
-          <label>Password</label>
+          <%= f.label :password, 'Password'%>
           <div class="ui left icon input">
-            <input type="text" placeholder="Password">
+            <%= f.text_field :password, placeholder: 'Password', type:'password' %>
             <i class="lock icon"></i>
           </div>
         </div>
-        <button class="ui orange submit button">Login</button>
-      </form>
+        <%= f.submit "LOG IN", class:'ui blue submit big button'  %>
+      <% end %>
     </div>
     <div class="middle aligned column">
       <div class="ui big orange disabled button">
